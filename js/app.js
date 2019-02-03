@@ -1,14 +1,18 @@
-var game_level = {
-  y_positions: [60,140,220],
-  speed: Math.floor(Math.random() * 200) + 300
+function enemy_speeds() {
+  return Math.floor(Math.random() * 200) + 300;
+}
+
+function random_y() {
+  y_positions = [60,140,220];
+  return y_positions[Math.floor(Math.random() * y_positions.length)];
 }
 
 // Enemies our player must avoid
 var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';   // Load enemy images
     this.x = Math.floor(Math.random() * 500); //Random x starting position
-    this.y = game_level.y_positions[Math.floor(Math.random() * game_level.y_positions.length)]; // Randomly choose between three y positions
-    this.enemy_speed = game_level.speed; // Random enemy speed
+    this.y = random_y(); // Randomly choose between three y positions
+    this.enemy_speed = enemy_speeds(); // Random enemy speed
 };
 
 // Update the enemy's position, required method for game
@@ -20,8 +24,8 @@ Enemy.prototype.update = function(dt) {
     this.x += this.enemy_speed * dt;
     if (this.x > 500) {   //Resets enemies position after enemy has scrolled of the board
       this.x = -100;
-      this.enemy_speed = game_level.speed;
-      this.y = game_level.y_positions[Math.floor(Math.random() * game_level.y_positions.length)];
+      this.enemy_speed = enemy_speeds();
+      this.y = random_y();
     }
 };
 
