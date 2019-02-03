@@ -2,8 +2,10 @@
 
 ## Table of Contents
 
-- [Instructions](#instructions)
 - [Run](#run)
+- [Objective](#objective)
+- [Play](#play)
+- [Dependencies](#dependencies)
 - [Contributing](#contributing)
 
 ## Run
